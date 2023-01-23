@@ -1,4 +1,5 @@
 import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,7 @@ public class TestAPIMarsWeatherService {
     public void checkMarsWeather(){
         String api_request = "/?api_key=" + API_KEY + "&feedtype=" + FEED;
         given()
+                .filter(new AllureRestAssured())
                 .get(api_request)
                 .then()
                 .assertThat()

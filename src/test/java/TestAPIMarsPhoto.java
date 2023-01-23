@@ -1,4 +1,5 @@
 import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,7 @@ public class TestAPIMarsPhoto {
     public void photoFromMars(){
         String api_request = "/photos?earth_date=" + DATE + "&api_key=" + API_KEY;
         given()
+                .filter(new AllureRestAssured())
                 .get(api_request)
                 .then()
                 .assertThat()

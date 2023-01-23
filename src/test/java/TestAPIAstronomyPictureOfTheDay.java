@@ -1,4 +1,5 @@
 import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +15,8 @@ public class TestAPIAstronomyPictureOfTheDay {
     @DisplayName("Проверка API получения фотографии дня")
     public void checkAPOD(){
         given()
-        .get("/apod?api_key=ZCfZmZffzHjlNxLPPU2go6Y7YdRR2Dt9QR1V9KCC")
+                .filter(new AllureRestAssured())
+                .get("/apod?api_key=ZCfZmZffzHjlNxLPPU2go6Y7YdRR2Dt9QR1V9KCC")
                 .then()
                 .assertThat()
                 .statusCode(200)

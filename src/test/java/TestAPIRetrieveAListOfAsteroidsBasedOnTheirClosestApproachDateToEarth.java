@@ -1,4 +1,5 @@
 import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +22,7 @@ public class TestAPIRetrieveAListOfAsteroidsBasedOnTheirClosestApproachDateToEar
     public void checkListOfAsteroids(){
         String api_request = "/feed?start_date=" + START_DATE_POSITIVE + "&end_date=" + END_DATE + "&api_key=" + API_KEY;
         given()
+                .filter(new AllureRestAssured())
                 .get(api_request)
                 .then()
                 .assertThat()
@@ -33,6 +35,7 @@ public class TestAPIRetrieveAListOfAsteroidsBasedOnTheirClosestApproachDateToEar
     public void checkListOfAsteroidsNegativeStartDate(){
         String api_request = "/feed?start_date=" + START_DATE_NEGATIVE + "&end_date=" + END_DATE + "&api_key=" + API_KEY;
         given()
+                .filter(new AllureRestAssured())
                 .get(api_request)
                 .then()
                 .assertThat()

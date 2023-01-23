@@ -1,4 +1,5 @@
 import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +16,7 @@ public class TestAPIBrowseTheOverallAsteroidDataSet {
     @DisplayName("Проверка API получения общего набора данных об астероидах")
     public void checkBrowseDataSet(){
         given()
+                .filter(new AllureRestAssured())
                 .get("/browse?api_key=ZCfZmZffzHjlNxLPPU2go6Y7YdRR2Dt9QR1V9KCC")
                 .then()
                 .assertThat()
