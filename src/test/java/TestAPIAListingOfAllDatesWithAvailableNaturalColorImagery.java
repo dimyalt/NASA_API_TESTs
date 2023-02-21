@@ -1,7 +1,6 @@
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
 import org.junit.Before;
 import org.junit.Test;
 import static io.restassured.RestAssured.*;

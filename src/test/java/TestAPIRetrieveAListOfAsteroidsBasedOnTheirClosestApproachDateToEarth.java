@@ -31,7 +31,7 @@ public class TestAPIRetrieveAListOfAsteroidsBasedOnTheirClosestApproachDateToEar
                 .body("element_count", notNullValue());
     }
     @Test
-    @DisplayName("Проверка API Получение списка астероидов с ошибочной датой начала фомирования списка")
+    @DisplayName("Проверка API Получение списка астероидов с ошибочной датой начала формирования списка")
     public void checkListOfAsteroidsNegativeStartDate(){
         String api_request = "/feed?start_date=" + START_DATE_NEGATIVE + "&end_date=" + END_DATE + "&api_key=" + API_KEY;
         given()
